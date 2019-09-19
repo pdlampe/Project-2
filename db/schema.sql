@@ -8,6 +8,7 @@ CREATE TABLE products (
     prod_desc VARCHAR(255),
     category VARCHAR(255) NOT NULL,
     subcat VARCHAR(255) NOT NULL,
+    prod_img VARCHAR(255),
     manufacturer VARCHAR(255) NOT NULL,
     price DEC(10,2) NOT NULL,
     case_count INT,
