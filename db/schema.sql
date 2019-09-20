@@ -16,6 +16,7 @@ CREATE TABLE products (
     case_weight INT,
     on_hand INT,
     certs VARCHAR(255),
+    ndbno VARCHAR(10),
     PRIMARY KEY (id),
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
     
