@@ -1,9 +1,9 @@
 DROP DATABASE IF EXISTS produce_db;
 CREATE DATABASE produce_db;
 USE produce_db;
-CREATE TABLE products (
+CREATE TABLE items (
     id INT NOT NULL AUTO_INCREMENT,
-    plu INT NOT NULL,
+    plu VARCHAR(255) NOT NULL,
     product_name VARCHAR(255) NOT NULL,
     prod_desc VARCHAR(255),
     category VARCHAR(255) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE products (
     case_weight INT,
     on_hand INT,
     certs VARCHAR(255),
-    ndbno VARCHAR(10),
+    ndbno VARCHAR(255),
     PRIMARY KEY (id),
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
     
