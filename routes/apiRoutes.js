@@ -13,17 +13,17 @@ module.exports = function(app) {
     console.log(req.body);
     db.Item.create({
       plu: req.body.plu,
-      product_name: req.body.product_name,
-      prod_desc: req.body.prod_desc,
+      productName: req.body.productName,
+      prodDesc: req.body.prodDesc,
       category: req.body.category,
       subcat: req.body.subcat,
-      prod_img: req.body.prod_img,
+      prodImg: req.body.prodImg,
       manufacturer: req.body.manufacturer,
       price: req.body.price,
-      case_count: req.body.case_count,
-      case_dimensions: req.body.case_dimensions,
-      case_weight: req.body.case_weight,
-      on_hand: req.body.on_hand,
+      caseCount: req.body.caseCount,
+      caseDimensions: req.body.caseDimensions,
+      caseWeight: req.body.caseWeight,
+      onHand: req.body.onHand,
       certs: req.body.certs,
       ndbno: req.body.ndbno
     }).then(function(result) {

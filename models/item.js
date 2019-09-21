@@ -1,25 +1,24 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable camelcase */
 module.exports = function (sequelize, DataTypes) {
   var Item = sequelize.define("Item", {
     plu: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    product_name: {
+    productName: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    prod_desc: DataTypes.STRING,
+    prodDesc: DataTypes.STRING,
     category: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    subcat: {
+    }
+    ,subcat: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    prod_img: DataTypes.STRING,
+    prodImg: DataTypes.STRING,
     manufacturer: {
       type: DataTypes.STRING,
       allowNull: false
@@ -28,18 +27,18 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false
     },
-    case_count: {
+    caseCount: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    case_dimensions: {
+    caseDimensions: {
       type: DataTypes.STRING,
       allowNull: false
-    }, case_weight: {
+    }, caseWeight: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    on_hand: {
+    onHand: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
