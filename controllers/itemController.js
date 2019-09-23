@@ -1,10 +1,8 @@
-/* eslint-disable camelcase */
 var db = require("../models");
 var Sequelize = require("sequelize");
 var Op = Sequelize.Op;
 
 module.exports = function(app) {
-  // Get all items
   app.get("/api/items", function(req, res) {
     db.Item.findAll({}).then(function(result) {
       res.json(result);
