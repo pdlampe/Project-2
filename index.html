@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>inSeason Homepage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <meta name="author" content="Codrops" />
@@ -34,7 +34,6 @@
 
         body {
             background: url("fruitnveggiebgndsml.png");
-
             background-repeat: repeat;
         }
     </style>
@@ -45,7 +44,7 @@
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
+            <a class="navbar-item" href="index.html">
                 <img src="inSeasonlogo.png" width="112" height="28">
             </a>
 
@@ -59,7 +58,7 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
+                <a class="navbar-item" href="index.html">
                     Home
                 </a>
 
@@ -75,7 +74,7 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary">
+                    <a class="button is-warning">
                         <strong>Sign up</strong>
                     </a>
                     <a class="button is-light">
@@ -89,7 +88,7 @@
 
     <section class="section">
         <div class="columns">
-            <div class="column is-one-third">
+            <div class="column is-one-third is-hidden-touch">
                 <!-- Main container -->
                 <div class="container">
                     <!-- Blueprint header -->
@@ -185,21 +184,33 @@
             </div>
             <div class="column is-two-thirds">
                 <br>
+                <br><br>
                 <figure class="image center">
                     <img src="inSeasonlogo.png" style="max-width: 600px; max-height: 160">
                 </figure>
-                <div class="field">
-                    <label class="label">Search</label>
+                <br>
+                <br>
+                <div class="field center">
+                    <!-- <label class="label">Label</label> -->
                     <div class="control">
                         <input class="input" type="text" placeholder="Text input">
                     </div>
-                    <p class="help">This is a help text</p>
+
+                    <!-- <p class="help">This is a help text</p> -->
+
                 </div>
-                <div class="control">
-                    <button class="button is-primary">Submit</button>
+                <br>
+
+                <div class="field center">
+                    <a class="button is-warning">Search</a>
+                </div>
+                <div class="field center">
                 </div>
             </div>
-
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br>
+            <br><br>
+            <br><br>
         </div>
         <!-- <figure class="image center">
             <img src="inSeasonlogo.png" style="max-width: 600px; max-height: 160">
@@ -219,54 +230,55 @@
 
     </section>
 
-    <script src="js/classie.js"></script>
-    <script src="js/dummydata.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        (function () {
-            var menuEl = document.getElementById("ml-menu"),
-                mlmenu = new MLMenu(menuEl, {
-                    // breadcrumbsCtrl : true, // show breadcrumbs
-                    // initialBreadcrumb : 'all', // initial breadcrumb text
-                    backCtrl: false, // show back button
-                    // itemsDelayInterval : 60, // delay between each menu item sliding animation
-                    onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
-                });
 
-            // mobile menu toggle
-            var openMenuCtrl = document.querySelector(".action--open"),
-                closeMenuCtrl = document.querySelector(".action--close");
-
-            openMenuCtrl.addEventListener("click", openMenu);
-            closeMenuCtrl.addEventListener("click", closeMenu);
-
-            function openMenu() {
-                classie.add(menuEl, "menu--open");
-                closeMenuCtrl.focus();
-            }
-
-            function closeMenu() {
-                classie.remove(menuEl, "menu--open");
-                openMenuCtrl.focus();
-            }
-
-            // simulate grid content loading
-            var gridWrapper = document.querySelector(".content");
-
-            function loadDummyData(ev, itemName) {
-                ev.preventDefault();
-
-                closeMenu();
-                gridWrapper.innerHTML = "";
-                classie.add(gridWrapper, "content--loading");
-                setTimeout(function () {
-                    classie.remove(gridWrapper, "content--loading");
-                    gridWrapper.innerHTML =
-                        '<ul class="products">' + dummyData[itemName] + "<ul>";
-                }, 700);
-            }
-        })();
-    </script>
 </body>
+<script src="js/classie.js"></script>
+<script src="js/dummydata.js"></script>
+<script src="js/main.js"></script>
+<script>
+    (function () {
+        var menuEl = document.getElementById("ml-menu"),
+            mlmenu = new MLMenu(menuEl, {
+                // breadcrumbsCtrl : true, // show breadcrumbs
+                // initialBreadcrumb : 'all', // initial breadcrumb text
+                backCtrl: false, // show back button
+                // itemsDelayInterval : 60, // delay between each menu item sliding animation
+                onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+            });
+
+        // mobile menu toggle
+        var openMenuCtrl = document.querySelector(".action--open"),
+            closeMenuCtrl = document.querySelector(".action--close");
+
+        openMenuCtrl.addEventListener("click", openMenu);
+        closeMenuCtrl.addEventListener("click", closeMenu);
+
+        function openMenu() {
+            classie.add(menuEl, "menu--open");
+            closeMenuCtrl.focus();
+        }
+
+        function closeMenu() {
+            classie.remove(menuEl, "menu--open");
+            openMenuCtrl.focus();
+        }
+
+        // simulate grid content loading
+        var gridWrapper = document.querySelector(".content");
+
+        function loadDummyData(ev, itemName) {
+            ev.preventDefault();
+
+            closeMenu();
+            gridWrapper.innerHTML = "";
+            classie.add(gridWrapper, "content--loading");
+            setTimeout(function () {
+                classie.remove(gridWrapper, "content--loading");
+                gridWrapper.innerHTML =
+                    '<ul class="products">' + dummyData[itemName] + "<ul>";
+            }, 700);
+        }
+    })();
+</script>
 
 </html>
