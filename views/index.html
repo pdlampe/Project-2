@@ -8,23 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <meta name="author" content="Codrops" />
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="../public/img/favicon.ico" />
     <!-- food icons -->
-    <link rel="stylesheet" type="text/css" href="css/organicfoodicons.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/organicfoodicons.css" />
     <!-- demo styles -->
-    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/demo.css" />
     <!-- menu styles -->
-    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="../public/css/component.css" />
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Archivo+Black" />
     <!-- include the nutrition label plugin css file -->
     <link rel="stylesheet" type="text/css"
         href="/bower_components/nutrition-label-jquery-plugin/dist/css/nutritionLabel-min.css" />
     <!-- include the jquery library -->
-    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- include the nutrition label plugin js file -->
     <script type="text/javascript"
         src="/bower_components/nutrition-label-jquery-plugin/dist/js/nutritionLabel-min.js"></script>
-    <script src="js/modernizr-custom.js"></script>
+    <script src="../public/js/modernizr-custom.js"></script>
     <style>
         .center {
             display: flex;
@@ -33,7 +34,8 @@
         }
 
         body {
-            background: url("fruitnveggiebgndsml.png");
+            background: url("../public/img/fruitnveggiebgndsml.png");
+
             background-repeat: repeat;
         }
     </style>
@@ -45,7 +47,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="index.html">
-                <img src="inSeasonlogo.png" width="112" height="28">
+                <img src="../public/img/inSeasonlogo.png" width="112" height="28">
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
@@ -87,8 +89,8 @@
     </nav>
 
     <section class="section">
-        <div class="columns">
-            <div class="column is-one-third is-hidden-touch">
+        <div class="columns ">
+            <div class=" column is-one-fifths is-hidden-touch">
                 <!-- Main container -->
                 <div class=" container">
                     <!-- Blueprint header -->
@@ -185,30 +187,22 @@
 
                 </div>
             </div>
-            <div class="column is-two-thirds">
-                <br>
-                <br><br>
+            <div class="column is-four-fifths">
+                <br> <br>
                 <figure class="image center">
-                    <img src="inSeasonlogo.png" style="max-width: 600px; max-height: 160">
+                    <img src="../public/img/inSeasonlogo.png" style="max-width: 600px; max-height: 160">
                 </figure>
-                <br>
-                <br>
-                <div class="field center">
-                    <!-- <label class="label">Label</label> -->
-
+                <br> <br>
+                <div class="field has-addons has-addons-centered">
                     <div class="control">
                         <input class="input" type="text" placeholder="Find a fruit or vegetable">
                     </div>
+                    <div class="control">
+                        <a class="button is-warning">
+                            Search
+                        </a>
+                    </div>
 
-                    <!-- <p class="help">This is a help text</p> -->
-
-                </div>
-                <br>
-
-                <div class="field center">
-                    <a class="button is-warning">Search</a>
-                </div>
-                <div class="field center">
                 </div>
                 <br>
                 <br>
@@ -230,10 +224,8 @@
                 <br>
                 <br>
             </div>
-            <br><br><br><br><br><br><br><br><br><br>
-            <br><br>
-            <br><br>
-            <br><br>
+
+
         </div>
         <!-- <figure class="image center">
             <img src="inSeasonlogo.png" style="max-width: 600px; max-height: 160">
@@ -253,55 +245,54 @@
 
     </section>
 
+    <script src="../public/js/classie.js"></script>
+    <script src="../public/js/dummydata.js"></script>
+    <script src="../public/js/main.js"></script>
+    <script>
+        (function () {
+            var menuEl = document.getElementById("ml-menu"),
+                mlmenu = new MLMenu(menuEl, {
+                    // breadcrumbsCtrl : true, // show breadcrumbs
+                    // initialBreadcrumb : 'all', // initial breadcrumb text
+                    backCtrl: false, // show back button
+                    // itemsDelayInterval : 60, // delay between each menu item sliding animation
+                    onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+                });
 
+            // mobile menu toggle
+            var openMenuCtrl = document.querySelector(".action--open"),
+                closeMenuCtrl = document.querySelector(".action--close");
+
+            openMenuCtrl.addEventListener("click", openMenu);
+            closeMenuCtrl.addEventListener("click", closeMenu);
+
+            function openMenu() {
+                classie.add(menuEl, "menu--open");
+                closeMenuCtrl.focus();
+            }
+
+            function closeMenu() {
+                classie.remove(menuEl, "menu--open");
+                openMenuCtrl.focus();
+            }
+
+            // simulate grid content loading
+            var gridWrapper = document.querySelector(".content");
+
+            function loadDummyData(ev, itemName) {
+                ev.preventDefault();
+
+                closeMenu();
+                gridWrapper.innerHTML = "";
+                classie.add(gridWrapper, "content--loading");
+                setTimeout(function () {
+                    classie.remove(gridWrapper, "content--loading");
+                    gridWrapper.innerHTML =
+                        '<ul class="products">' + dummyData[itemName] + "<ul>";
+                }, 700);
+            }
+        })();
+    </script>
 </body>
-<script src="js/classie.js"></script>
-<script src="js/dummydata.js"></script>
-<script src="js/main.js"></script>
-<script>
-    (function () {
-        var menuEl = document.getElementById("ml-menu"),
-            mlmenu = new MLMenu(menuEl, {
-                // breadcrumbsCtrl : true, // show breadcrumbs
-                // initialBreadcrumb : 'all', // initial breadcrumb text
-                backCtrl: false, // show back button
-                // itemsDelayInterval : 60, // delay between each menu item sliding animation
-                onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
-            });
-
-        // mobile menu toggle
-        var openMenuCtrl = document.querySelector(".action--open"),
-            closeMenuCtrl = document.querySelector(".action--close");
-
-        openMenuCtrl.addEventListener("click", openMenu);
-        closeMenuCtrl.addEventListener("click", closeMenu);
-
-        function openMenu() {
-            classie.add(menuEl, "menu--open");
-            closeMenuCtrl.focus();
-        }
-
-        function closeMenu() {
-            classie.remove(menuEl, "menu--open");
-            openMenuCtrl.focus();
-        }
-
-        // simulate grid content loading
-        var gridWrapper = document.querySelector(".content");
-
-        function loadDummyData(ev, itemName) {
-            ev.preventDefault();
-
-            closeMenu();
-            gridWrapper.innerHTML = "";
-            classie.add(gridWrapper, "content--loading");
-            setTimeout(function () {
-                classie.remove(gridWrapper, "content--loading");
-                gridWrapper.innerHTML =
-                    '<ul class="products">' + dummyData[itemName] + "<ul>";
-            }, 700);
-        }
-    })();
-</script>
 
 </html>
