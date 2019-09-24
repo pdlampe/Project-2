@@ -1,33 +1,309 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Items:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each items}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.productName}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="index.html">
+      <img src="/img/inSeasonlogo.png" width="112" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="index.html">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Search
+      </a>
+      <a class="navbar-item">
+        Company Info
+      </a>
+    </div>
+  </div>
+
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <div class="buttons">
+        <a class="button is-warning">
+          <strong>Sign up</strong>
+        </a>
+        <a class="button is-light">
+          Log in
+        </a>
       </div>
     </div>
   </div>
-</div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="columns ">
+    <div class=" column is-one-fifths is-hidden-touch">
+      <!-- Main container -->
+      <div class=" container">
+        <!-- Blueprint header -->
+        <header class="bp-header cf">
+          <div class="dummy-logo"></div>
+          <div class="bp-header__main"></div>
+        </header>
+        <button class="action action--open" aria-label="Open Menu">
+          <span class="icon icon--menu"></span>
+        </button>
+        <nav id="ml-menu" class="menu">
+          <button class="action action--close" aria-label="Close Menu">
+            <span class="icon icon--cross"></span>
+          </button>
+          <div class="menu__wrap">
+            <ul data-menu="main" class="menu__level" tabindex="-1" role="menu" aria-label="All">
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1" href="#">Vegetables</a>
+              </li>
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" data-submenu="submenu-2" aria-owns="submenu-2" href="#">Fruits</a>
+              </li>
+            </ul>
+            <!-- Submenu 1 -->
+            <ul data-menu="submenu-1" id="submenu-1" class="menu__level" tabindex="-1" role="menu"
+              aria-label="Vegetables">
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" data-submenu="submenu-1-1" aria-owns="submenu-1-1" href="#">Seeded
+                  Vegetables</a>
+              </li>
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" data-submenu="submenu-1-2" aria-owns="submenu-1-2" href="#">Herbs</a>
+              </li>
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" data-submenu="submenu-1-3" aria-owns="submenu-1-3" href="#">Root
+                  Vegetables</a>
+              </li>
+            </ul>
+
+            <!-- Submenu 1-1 -->
+            <ul data-menu="submenu-1-1" id="submenu-1-1" class="menu__level" tabindex="-1" role="menu"
+              aria-label="Seeded Vegetables">
+              {{#each items}}
+              {{#eq this.subcat "Seeded Vegetables"}}
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+              </li>
+              {{/eq}}
+              {{/each}}
+              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+            </ul>
+            <!-- Submenu 1-2 -->
+            <ul data-menu="submenu-1-2" id="submenu-1-2" class="menu__level" tabindex="-1" role="menu"
+              aria-label="Herbs">
+              {{#each items}}
+              {{#eq this.subcat "Herbs"}}
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+              </li>
+              {{/eq}}
+              {{/each}}
+              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+
+            </ul>
+            <!-- Submenu 1-3 -->
+            <ul data-menu="submenu-1-3" id="submenu-1-3" class="menu__level" tabindex="-1" role="menu"
+              aria-label="Root Vegetables">
+              {{#each items}}
+              {{#eq this.subcat "Root Vegetables"}}
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+              </li>
+              {{/eq}}
+              {{/each}}
+              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+
+              </li>
+            </ul>
+            <!-- Submenu 2 -->
+            <ul data-menu="submenu-2" id="submenu-2" class="menu__level" tabindex="-1" role="menu" aria-label="Fruits">
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" data-submenu="submenu-2-1" aria-owns="submenu-2-1" href="#">Citrus</a>
+              </li>
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" data-submenu="submenu-2-2" aria-owns="submenu-2-2" href="#">Tropical</a>
+              </li>
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" data-submenu="submenu-2-3" aria-owns="submenu-2-3" href="#">Pomes</a>
+              </li>
+            </ul>
+
+            <!-- Submenu 1-1 -->
+            <ul data-menu="submenu-2-1" id="submenu-2-1" class="menu__level" tabindex="-1" role="menu"
+              aria-label="Citrus">
+              {{#each items}}
+              {{#eq this.subcat "Citrus"}}
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+              </li>
+              {{/eq}}
+              {{/each}}
+              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+
+            </ul>
+            <!-- Submenu 1-2 -->
+            <ul data-menu="submenu-2-2" id="submenu-2-2" class="menu__level" tabindex="-1" role="menu"
+              aria-label="Tropical">
+              {{#each items}}
+              {{#eq this.subcat "Tropical"}}
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+              </li>
+              {{/eq}}
+              {{/each}}
+              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+            </ul>
+            <!-- Submenu 1-3 -->
+            <ul data-menu="submenu-2-3" id="submenu-2-3" class="menu__level" tabindex="-1" role="menu"
+              aria-label="Pomes">
+              {{#each items}}
+              {{#eq this.subcat "Pomes"}}
+              <li class="menu__item" role="menuitem">
+                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+              </li>
+              {{/eq}}
+              {{/each}}
+              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+    <div class="column is-four-fifths" id="mainContent">
+      <br> <br>
+      <figure class="image center">
+        <img src="/img/inSeasonlogo.png" style="max-width: 600px; max-height: 160">
+      </figure>
+      <br> <br>
+      <div class="field has-addons has-addons-centered">
+        <div class="control">
+          <input class="input" type="text" placeholder="Find a fruit or vegetable">
+        </div>
+        <div class="control">
+          <a class="button is-warning">
+            Search
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/classie.js"></script>
+<script src="/js/main.js"></script>
+{{!-- <script src="/js/index.js"></script> --}}
+
+<script>
+  (function () {
+    var menuEl = document.getElementById("ml-menu"),
+      mlmenu = new MLMenu(menuEl, {
+        // breadcrumbsCtrl : true, // show breadcrumbs
+        // initialBreadcrumb : 'all', // initial breadcrumb text
+        backCtrl: false, // show back button
+        // itemsDelayInterval : 60, // delay between each menu item sliding animation
+        onItemClick: loadData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+
+      });
+
+    // mobile menu toggle
+    var openMenuCtrl = document.querySelector(".action--open"),
+      closeMenuCtrl = document.querySelector(".action--close");
+
+    openMenuCtrl.addEventListener("click", openMenu);
+    closeMenuCtrl.addEventListener("click", closeMenu);
+
+    function openMenu() {
+      classie.add(menuEl, "menu--open");
+      closeMenuCtrl.focus();
+    }
+
+    function closeMenu() {
+      classie.remove(menuEl, "menu--open");
+      openMenuCtrl.focus();
+    }
+
+    // simulate grid content loading
+    var gridWrapper = document.querySelector("#mainContent");
+
+    function loadData(ev, itemName, plu) {
+      ev.preventDefault();
+      closeMenu();
+      gridWrapper.innerHTML = "";
+      $.ajax({
+        url: "api/search/" + plu,
+        type: "GET"
+      }).then(
+        function (data) {
+          console.log(data);
+          var productData =
+            "<li><img src=" + data[0].prodImg + "></li>" +
+            "<li>" + data[0].productName + "</li>" +
+            "<li>Product Description: " + data[0].prodDesc + "</li>" +
+            "<li>Subcategory: " + data[0].subcat + "</li>" +
+            "<li>Category: " + data[0].category + "</li>" +
+            "<li>Manufacturer: " + data[0].manufacturer + "</li>" +
+            "<li>Certifications: " + data[0].certs + "</li>" +
+            "<li>PLU: " + data[0].plu + "</li>" +
+            "<li>Price: $" + data[0].price + "</li>" +
+            "<li>Case Dimensions: " + data[0].caseDimensions + "</li>" +
+            "<li>Case Weight: " + data[0].caseWeight + "</li>" +
+            "<div id='nfp'>";
+
+          gridWrapper.innerHTML = productData;
+
+          $.ajax({
+            type: "GET",
+            url:
+              "http://api.nal.usda.gov/ndb/reports/?ndbno=" +
+              plu +
+              "&type=f&format=json&api_key=haaezbfxD14qfpXGVwF2Me4EE8iAMgQ6NH5fiqG0",
+            dataType: "json"
+          }).then(function (response) {
+            console.log(response.report.food.nutrients);
+            $("#nfp").nutritionLabel({
+              showServingUnitQuantity: false,
+              itemName: response.report.food.name,
+              decimalPlacesForQuantityTextbox: 2,
+              valueServingUnitQuantity: 1,
+              allowFDARounding: true,
+              decimalPlacesForNutrition: 2,
+              showPolyFat: false,
+              showMonoFat: false,
+              valueCalories: response.report.food.nutrients[0].value,
+              valueFatCalories: 430,
+              valueTotalFat: response.report.food.nutrients[2].value,
+              valueSatFat: response.report.food.nutrients[11].value,
+              valueTransFat: response.report.food.nutrients[12].value,
+              valueCholesterol: response.report.food.nutrients[13].value,
+              valueSodium: response.report.food.nutrients[8].value,
+              valueTotalCarb: response.report.food.nutrients[3].value,
+              valueFibers: response.report.food.nutrients[4].value,
+              valueSugars: response.report.food.nutrients[5].value,
+              valueProteins: 3,
+              valueVitaminD: 12.22,
+              valuePotassium_2018: 4.22,
+              valueCalcium: 7.22,
+              valueIron: 11.22,
+              valueAddedSugars: 17,
+              showLegacyVersion: false
+            });
+          });
+        }
+      );
+
+    }
+  })();
+</script>
