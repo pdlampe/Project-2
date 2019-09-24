@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>inSeason Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../public/img/favicon.ico" />
+    <!-- food icons -->
+    <link rel="stylesheet" type="text/css" href="../public/css/organicfoodicons.css" />
+    <!-- demo styles -->
+    <link rel="stylesheet" type="text/css" href="../public/css/demo.css" />
+    <!-- menu styles -->
+    <link rel="stylesheet" type="text/css" href="../public/css/component.css" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Archivo+Black" />
+    <!-- include the nutrition label plugin css file -->
+    <link rel="stylesheet" type="text/css"
+        href="/bower_components/nutrition-label-jquery-plugin/dist/css/nutritionLabel-min.css" />
+    <!-- include the jquery library -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- include the nutrition label plugin js file -->
+    <script type="text/javascript"
+        src="/bower_components/nutrition-label-jquery-plugin/dist/js/nutritionLabel-min.js"></script>
+    <script src="../public/js/modernizr-custom.js"></script>
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            background: url("../public/img/fruitnveggiebgndsml.png");
+
+            background-repeat: repeat;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <img src="../public/img/inSeasonlogo.png" width="112" height="28">
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.html">
+                    Home
+                </a>
+
+                <a class="navbar-item">
+                    Search
+                </a>
+                <a class="navbar-item">
+                    Company Info
+                </a>
+            </div>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-warning">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light">
+                        Log in
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="columns ">
+            <div class=" column is-one-fifths is-hidden-touch">
+                <!-- Main container -->
+                <div class=" container">
+                    <!-- Blueprint header -->
+                    <header class="bp-header cf">
+                        <div class="dummy-logo"></div>
+                        <div class="bp-header__main"></div>
+                    </header>
+                    <button class="action action--open" aria-label="Open Menu">
+                        <span class="icon icon--menu"></span>
+                    </button>
+                    <nav id="ml-menu" class="menu">
+                        <button class="action action--close" aria-label="Close Menu">
+                            <span class="icon icon--cross"></span>
+                        </button>
+                        <div class="menu__wrap">
+                            <ul data-menu="main" class="menu__level" tabindex="-1" role="menu" aria-label="All">
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1"
+                                        href="#">Vegetables</a>
+                                </li>
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" data-submenu="submenu-2" aria-owns="submenu-2"
+                                        href="#">Fruits</a>
+                                </li>
+                            </ul>
+                            <!-- Submenu 1 -->
+                            <ul data-menu="submenu-1" id="submenu-1" class="menu__level" tabindex="-1" role="menu"
+                                aria-label="Vegetables">
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" data-submenu="submenu-1-1" aria-owns="submenu-1-1"
+                                        href="#">Seeded
+                                        Vegetables</a>
+                                </li>
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" data-submenu="submenu-1-2" aria-owns="submenu-1-2"
+                                        href="#">Herbs</a>
+                                </li>
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" data-submenu="submenu-1-3" aria-owns="submenu-1-3"
+                                        href="#">Root
+                                        Vegetables</a>
+                                </li>
+                            </ul>
+                            <!-- Submenu 1-1 -->
+                            <ul data-menu="submenu-1-1" id="submenu-1-1" class="menu__level" tabindex="-1" role="menu"
+                                aria-label="Seeded Vegetables">
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" href="#">Tomatoes</a>
+                                </li>
+                            </ul>
+                            <!-- Submenu 1-2 -->
+                            <ul data-menu="submenu-1-2" id="submenu-1-2" class="menu__level" tabindex="-1" role="menu"
+                                aria-label="Herbs">
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" href="#">Basil</a>
+                                </li>
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" href="#">Parsley</a>
+                                </li>
+                            </ul>
+                            <!-- Submenu 1-3 -->
+                            <ul data-menu="submenu-1-3" id="submenu-1-3" class="menu__level" tabindex="-1" role="menu"
+                                aria-label="Root Vegetables">
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" href="#">Potatoes</a>
+                                </li>
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" href="#">Carrots</a>
+                                </li>
+                            </ul>
+                            <!-- Submenu 2 -->
+                            <ul data-menu="submenu-2" id="submenu-2" class="menu__level" tabindex="-1" role="menu"
+                                aria-label="Fruits">
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" href="#">Citrus Fruits</a>
+                                </li>
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" href="#">Berries</a>
+                                </li>
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" data-submenu="submenu-2-1" aria-owns="submenu-2-1"
+                                        href="#">Special
+                                        Selection</a>
+                                </li>
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" href="#">Tropical Fruits</a>
+                                </li>
+                                <li class="menu__item" role="menuitem">
+                                    <a class="menu__link" href="#">Melons</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+            <div class="column is-four-fifths">
+                <br> <br>
+                <figure class="image center">
+                    <img src="../public/img/inSeasonlogo.png" style="max-width: 600px; max-height: 160">
+                </figure>
+                <br> <br>
+                <div class="field has-addons has-addons-centered">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Find a fruit or vegetable">
+                    </div>
+                    <div class="control">
+                        <a class="button is-warning">
+                            Search
+                        </a>
+                    </div>
+
+                </div>
+                <br>
+                <br>
+                <br>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+
+
+        </div>
+        <!-- <figure class="image center">
+            <img src="inSeasonlogo.png" style="max-width: 600px; max-height: 160">
+        </figure>
+        <div class="field">
+            <label class="label">Search</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Text input">
+            </div>
+            <p class="help">This is a help text</p>
+        </div>
+        <div class="control">
+            <button class="button is-primary">Submit</button>
+        </div> -->
+
+
+
+    </section>
+
+    <script src="../public/js/classie.js"></script>
+    <script src="../public/js/dummydata.js"></script>
+    <script src="../public/js/main.js"></script>
+    <script>
+        (function () {
+            var menuEl = document.getElementById("ml-menu"),
+                mlmenu = new MLMenu(menuEl, {
+                    // breadcrumbsCtrl : true, // show breadcrumbs
+                    // initialBreadcrumb : 'all', // initial breadcrumb text
+                    backCtrl: false, // show back button
+                    // itemsDelayInterval : 60, // delay between each menu item sliding animation
+                    onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+                });
+
+            // mobile menu toggle
+            var openMenuCtrl = document.querySelector(".action--open"),
+                closeMenuCtrl = document.querySelector(".action--close");
+
+            openMenuCtrl.addEventListener("click", openMenu);
+            closeMenuCtrl.addEventListener("click", closeMenu);
+
+            function openMenu() {
+                classie.add(menuEl, "menu--open");
+                closeMenuCtrl.focus();
+            }
+
+            function closeMenu() {
+                classie.remove(menuEl, "menu--open");
+                openMenuCtrl.focus();
+            }
+
+            // simulate grid content loading
+            var gridWrapper = document.querySelector(".content");
+
+            function loadDummyData(ev, itemName) {
+                ev.preventDefault();
+
+                closeMenu();
+                gridWrapper.innerHTML = "";
+                classie.add(gridWrapper, "content--loading");
+                setTimeout(function () {
+                    classie.remove(gridWrapper, "content--loading");
+                    gridWrapper.innerHTML =
+                        '<ul class="products">' + dummyData[itemName] + "<ul>";
+                }, 700);
+            }
+        })();
+    </script>
+</body>
+
+</html>
