@@ -51,158 +51,153 @@
 </nav>
 
 <section class="section">
-  <div class="columns ">
-    <div class=" column is-one-fifths is-hidden-touch">
-      <!-- Main container -->
-      <div class=" container">
-        <!-- Blueprint header -->
-        <header class="bp-header cf">
-          <div class="dummy-logo"></div>
-          <div class="bp-header__main"></div>
-        </header>
-        <button class="action action--open" aria-label="Open Menu">
-          <span class="icon icon--menu"></span>
-        </button>
-        <nav id="ml-menu" class="menu">
-          <button class="action action--close" aria-label="Close Menu">
-            <span class="icon icon--cross"></span>
-          </button>
-          <div class="menu__wrap">
-            <ul data-menu="main" class="menu__level" tabindex="-1" role="menu" aria-label="All">
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1" href="#">Vegetables</a>
-              </li>
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" data-submenu="submenu-2" aria-owns="submenu-2" href="#">Fruits</a>
-              </li>
-            </ul>
-            <!-- Submenu 1 -->
-            <ul data-menu="submenu-1" id="submenu-1" class="menu__level" tabindex="-1" role="menu"
-              aria-label="Vegetables">
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" data-submenu="submenu-1-1" aria-owns="submenu-1-1" href="#">Seeded
-                  Vegetables</a>
-              </li>
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" data-submenu="submenu-1-2" aria-owns="submenu-1-2" href="#">Herbs</a>
-              </li>
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" data-submenu="submenu-1-3" aria-owns="submenu-1-3" href="#">Root
-                  Vegetables</a>
-              </li>
-            </ul>
+  {{!-- <div class="columns "> --}}
+  {{!-- <div class=" column is-one-fifths is-hidden-touch">       --}}
+  <!-- Main container -->
+  <div class=" container">
+    <!-- Blueprint header -->
+    <header class="bp-header cf">
+      <div class="dummy-logo"></div>
+      <div class="bp-header__main"></div>
+    </header>
+    <button class="action action--open" aria-label="Open Menu">
+      <span class="icon icon--menu"></span>
+    </button>
+    <nav id="ml-menu" class="menu">
+      <button class="action action--close" aria-label="Close Menu">
+        <span class="icon icon--cross"></span>
+      </button>
+      <div class="menu__wrap">
+        <ul data-menu="main" class="menu__level" tabindex="-1" role="menu" aria-label="All">
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1" href="#">Vegetables</a>
+          </li>
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" data-submenu="submenu-2" aria-owns="submenu-2" href="#">Fruits</a>
+          </li>
+        </ul>
+        <!-- Submenu 1 -->
+        <ul data-menu="submenu-1" id="submenu-1" class="menu__level" tabindex="-1" role="menu" aria-label="Vegetables">
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" data-submenu="submenu-1-1" aria-owns="submenu-1-1" href="#">Seeded
+              Vegetables</a>
+          </li>
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" data-submenu="submenu-1-2" aria-owns="submenu-1-2" href="#">Herbs</a>
+          </li>
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" data-submenu="submenu-1-3" aria-owns="submenu-1-3" href="#">Root
+              Vegetables</a>
+          </li>
+        </ul>
 
-            <!-- Submenu 1-1 -->
-            <ul data-menu="submenu-1-1" id="submenu-1-1" class="menu__level" tabindex="-1" role="menu"
-              aria-label="Seeded Vegetables">
-              {{#each items}}
-              {{#eq this.subcat "Seeded Vegetables"}}
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
-                  data-plu={{ this.plu }}>{{ this.productName }}</a>
-              </li>
-              {{/eq}}
-              {{/each}}
-              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
-            </ul>
-            <!-- Submenu 1-2 -->
-            <ul data-menu="submenu-1-2" id="submenu-1-2" class="menu__level" tabindex="-1" role="menu"
-              aria-label="Herbs">
-              {{#each items}}
-              {{#eq this.subcat "Herbs"}}
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
-                  data-plu={{ this.plu }}>{{ this.productName }}</a>
-              </li>
-              {{/eq}}
-              {{/each}}
-              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+        <!-- Submenu 1-1 -->
+        <ul data-menu="submenu-1-1" id="submenu-1-1" class="menu__level" tabindex="-1" role="menu"
+          aria-label="Seeded Vegetables">
+          {{#each items}}
+          {{#eq this.subcat "Seeded Vegetables"}}
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+              data-plu={{ this.plu }}>{{ this.productName }}</a>
+          </li>
+          {{/eq}}
+          {{/each}}
+          <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+        </ul>
+        <!-- Submenu 1-2 -->
+        <ul data-menu="submenu-1-2" id="submenu-1-2" class="menu__level" tabindex="-1" role="menu" aria-label="Herbs">
+          {{#each items}}
+          {{#eq this.subcat "Herbs"}}
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+              data-plu={{ this.plu }}>{{ this.productName }}</a>
+          </li>
+          {{/eq}}
+          {{/each}}
+          <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
 
-            </ul>
-            <!-- Submenu 1-3 -->
-            <ul data-menu="submenu-1-3" id="submenu-1-3" class="menu__level" tabindex="-1" role="menu"
-              aria-label="Root Vegetables">
-              {{#each items}}
-              {{#eq this.subcat "Root Vegetables"}}
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
-                  data-plu={{ this.plu }}>{{ this.productName }}</a>
-              </li>
-              {{/eq}}
-              {{/each}}
-              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+        </ul>
+        <!-- Submenu 1-3 -->
+        <ul data-menu="submenu-1-3" id="submenu-1-3" class="menu__level" tabindex="-1" role="menu"
+          aria-label="Root Vegetables">
+          {{#each items}}
+          {{#eq this.subcat "Root Vegetables"}}
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+              data-plu={{ this.plu }}>{{ this.productName }}</a>
+          </li>
+          {{/eq}}
+          {{/each}}
+          <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
 
-              </li>
-            </ul>
-            <!-- Submenu 2 -->
-            <ul data-menu="submenu-2" id="submenu-2" class="menu__level" tabindex="-1" role="menu" aria-label="Fruits">
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" data-submenu="submenu-2-1" aria-owns="submenu-2-1" href="#">Citrus</a>
-              </li>
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" data-submenu="submenu-2-2" aria-owns="submenu-2-2" href="#">Tropical</a>
-              </li>
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" data-submenu="submenu-2-3" aria-owns="submenu-2-3" href="#">Pomes</a>
-              </li>
-            </ul>
+          </li>
+        </ul>
+        <!-- Submenu 2 -->
+        <ul data-menu="submenu-2" id="submenu-2" class="menu__level" tabindex="-1" role="menu" aria-label="Fruits">
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" data-submenu="submenu-2-1" aria-owns="submenu-2-1" href="#">Citrus</a>
+          </li>
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" data-submenu="submenu-2-2" aria-owns="submenu-2-2" href="#">Tropical</a>
+          </li>
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" data-submenu="submenu-2-3" aria-owns="submenu-2-3" href="#">Pomes</a>
+          </li>
+        </ul>
 
-            <!-- Submenu 1-1 -->
-            <ul data-menu="submenu-2-1" id="submenu-2-1" class="menu__level" tabindex="-1" role="menu"
-              aria-label="Citrus">
-              {{#each items}}
-              {{#eq this.subcat "Citrus"}}
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
-                  data-plu={{ this.plu }}>{{ this.productName }}</a>
-              </li>
-              {{/eq}}
-              {{/each}}
-              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+        <!-- Submenu 1-1 -->
+        <ul data-menu="submenu-2-1" id="submenu-2-1" class="menu__level" tabindex="-1" role="menu" aria-label="Citrus">
+          {{#each items}}
+          {{#eq this.subcat "Citrus"}}
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+              data-plu={{ this.plu }}>{{ this.productName }}</a>
+          </li>
+          {{/eq}}
+          {{/each}}
+          <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
 
-            </ul>
-            <!-- Submenu 1-2 -->
-            <ul data-menu="submenu-2-2" id="submenu-2-2" class="menu__level" tabindex="-1" role="menu"
-              aria-label="Tropical">
-              {{#each items}}
-              {{#eq this.subcat "Tropical"}}
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
-                  data-plu={{ this.plu }}>{{ this.productName }}</a>
-              </li>
-              {{/eq}}
-              {{/each}}
-              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
-            </ul>
-            <!-- Submenu 1-3 -->
-            <ul data-menu="submenu-2-3" id="submenu-2-3" class="menu__level" tabindex="-1" role="menu"
-              aria-label="Pomes">
-              {{#each items}}
-              {{#eq this.subcat "Pomes"}}
-              <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
-                  data-plu={{ this.plu }}>{{ this.productName }}</a>
-              </li>
-              {{/eq}}
-              {{/each}}
-              <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+        </ul>
+        <!-- Submenu 1-2 -->
+        <ul data-menu="submenu-2-2" id="submenu-2-2" class="menu__level" tabindex="-1" role="menu"
+          aria-label="Tropical">
+          {{#each items}}
+          {{#eq this.subcat "Tropical"}}
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+              data-plu={{ this.plu }}>{{ this.productName }}</a>
+          </li>
+          {{/eq}}
+          {{/each}}
+          <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
+        </ul>
+        <!-- Submenu 1-3 -->
+        <ul data-menu="submenu-2-3" id="submenu-2-3" class="menu__level" tabindex="-1" role="menu" aria-label="Pomes">
+          {{#each items}}
+          {{#eq this.subcat "Pomes"}}
+          <li class="menu__item" role="menuitem">
+            <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+              data-plu={{ this.plu }}>{{ this.productName }}</a>
+          </li>
+          {{/eq}}
+          {{/each}}
+          <li class="menu__item" role="menuitem"><a class="menu__link" href="#"></a></li>
 
-              </li>
-            </ul>
-          </div>
-        </nav>
-
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="columns is-centered">
+      <div class="column is-three-fifths is-centered" id="mainContent">
+        <br> <br>
+        <figure class="image center">
+          <img src="/img/inSeasonlogo.png" style="max-width: 600px; max-height: 160">
+        </figure>
+        <br> <br>
       </div>
     </div>
-    <div class="column is-four-fifths" id="mainContent">
-      <br> <br>
-      <figure class="image center">
-        <img src="/img/inSeasonlogo.png" style="max-width: 600px; max-height: 160">
-      </figure>
+  </div>
 
-      <br> <br>
-
-    </div>
   </div>
 </section>
 
