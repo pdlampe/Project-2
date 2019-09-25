@@ -63,7 +63,8 @@
 //   searchSubmit = $("#searchSubmit");
 // }
 
-$(document).on("click", "#searchSubmit", function() {
+$(document).on("click", "#searchSubmit", function(event) {
+  event.preventDefault();
   searchQuery = $("#searchQuery")
     .val()
     .trim();
@@ -89,20 +90,20 @@ $(document).on("click", "#searchSubmit", function() {
 
 function buildProductPage(data) {
   var productData =
-    "<li><img src=" +
+    "<div id='productData'><img src=" +
     data[0].prodImg +
-    "></li>" +
-    "<li>" +
+    ">" +
+    "<h2 class='title is-2'>" +
     data[0].productName +
-    "</li>" +
+    "</h2>" +
     "<li>Product Description: " +
     data[0].prodDesc +
     "</li>" +
-    "<li>Subcategory: " +
-    data[0].subcat +
-    "</li>" +
     "<li>Category: " +
     data[0].category +
+    "</li>" +
+    "<li>Subcategory: " +
+    data[0].subcat +
     "</li>" +
     "<li>Manufacturer: " +
     data[0].manufacturer +
@@ -124,7 +125,7 @@ function buildProductPage(data) {
     "</li>" +
     "<li>Nutrition Databse No.: " +
     data[0].ndbno +
-    "<div id='nfp'>";
+    "<div id='nfp'></div>";
 
   var gridWrapper = $("#mainContent");
   gridWrapper.empty();
