@@ -25,87 +25,138 @@
   }
 
   // simulate grid content loading
-  var gridWrapper = document.querySelector("#mainContent");
+  // var gridWrapper = document.querySelector("#mainContent");
 
-  function loadData(ev, itemName, plu) {
+  function loadData(ev, itemName, plu, ndbno) {
     ev.preventDefault();
     closeMenu();
-    gridWrapper.innerHTML = "";
+    // gridWrapper.innerHTML = "";
     $.ajax({
       url: "api/search/" + plu,
       type: "GET"
     }).then(function(data) {
       console.log(data);
-      var productData =
-        "<li><img src=" +
-        data[0].prodImg +
-        "></li>" +
-        "<li>" +
-        data[0].productName +
-        "</li>" +
-        "<li>Product Description: " +
-        data[0].prodDesc +
-        "</li>" +
-        "<li>Subcategory: " +
-        data[0].subcat +
-        "</li>" +
-        "<li>Category: " +
-        data[0].category +
-        "</li>" +
-        "<li>Manufacturer: " +
-        data[0].manufacturer +
-        "</li>" +
-        "<li>Certifications: " +
-        data[0].certs +
-        "</li>" +
-        "<li>PLU: " +
-        data[0].plu +
-        "</li>" +
-        "<li>Price: $" +
-        data[0].price +
-        "</li>" +
-        "<li>Case Dimensions: " +
-        data[0].caseDimensions +
-        "</li>" +
-        "<li>Case Weight: " +
-        data[0].caseWeight +
-        "</li>" +
-        "<div id='nfp'>";
-
-      gridWrapper.innerHTML = productData;
-      $.ajax({
-        url: "/api/search/nfp/" + "09503",
-        type: "GET"
-      }).then(function(response) {
-        console.log(response);
-        $("#nfp").nutritionLabel({
-          showServingUnitQuantity: false,
-          itemName: response.report.food.name,
-          decimalPlacesForQuantityTextbox: 2,
-          valueServingUnitQuantity: 1,
-          allowFDARounding: true,
-          decimalPlacesForNutrition: 2,
-          showPolyFat: false,
-          showMonoFat: false,
-          valueCalories: response.report.food.nutrients[0].value,
-          valueFatCalories: 430,
-          valueTotalFat: response.report.food.nutrients[2].value,
-          valueSatFat: response.report.food.nutrients[11].value,
-          valueTransFat: response.report.food.nutrients[12].value,
-          valueCholesterol: response.report.food.nutrients[13].value,
-          valueSodium: response.report.food.nutrients[8].value,
-          valueTotalCarb: response.report.food.nutrients[3].value,
-          valueFibers: response.report.food.nutrients[4].value,
-          valueSugars: response.report.food.nutrients[5].value,
-          valueProteins: 3,
-          valueVitaminD: 12.22,
-          valuePotassium_2018: 4.22,
-          valueCalcium: 7.22,
-          valueIron: 11.22,
-          valueAddedSugars: 17,
-          showLegacyVersion: false
-        });
-      });
+      buildProductPage(data);
     });
   }
 })();
+
+// var searchSubmit = $("#searchSubmit");
+
+// searchSubmit.on("click", loadSearchData);
+// var searchQuery;
+
+// var searchPageLink = $("#searchPageLink");
+
+// searchPageLink.on("click", buildSearchPage);
+
+// function buildSearchPage() {
+//   gridWrapper.innerHTML = "";
+//   var searchPage =
+//     "<br><br><figure class='image center'><img src='/img/inSeasonlogo.png' style='max-width: 600px; max-height: 160'></figure><br><br><form><div class='field has-addons has-addons-centered'>" +
+//     "<div class='control'><input id='searchQuery' class='input' type='text' placeholder='Find a fruit or vegetable'>" +
+//     "</div><div class='control'><button id='searchSubmit' class='button is-warning'>" +
+//     "Search" +
+//     "</button></div></div></form>";
+
+//   gridWrapper.innerHTML = searchPage;
+//   searchSubmit = $("#searchSubmit");
+// }
+
+$(document).on("click", "#searchSubmit", function() {
+  searchQuery = $("#searchQuery")
+    .val()
+    .trim();
+
+  function loadSearchData() {
+    if (!searchQuery) {
+      alert("You must enter a PLU or product name!");
+      return;
+    }
+    $.ajax({
+      url: "api/search/" + searchQuery,
+      type: "GET"
+    }).done(function(data) {
+      // gridWrapper = $("#mainContent");
+      // console.log(gridWrapper);
+      // gridWrapper.innerHTML = "";
+      buildProductPage(data);
+    });
+  }
+
+  loadSearchData();
+});
+
+function buildProductPage(data) {
+  var productData =
+    "<li><img src=" +
+    data[0].prodImg +
+    "></li>" +
+    "<li>" +
+    data[0].productName +
+    "</li>" +
+    "<li>Product Description: " +
+    data[0].prodDesc +
+    "</li>" +
+    "<li>Subcategory: " +
+    data[0].subcat +
+    "</li>" +
+    "<li>Category: " +
+    data[0].category +
+    "</li>" +
+    "<li>Manufacturer: " +
+    data[0].manufacturer +
+    "</li>" +
+    "<li>Certifications: " +
+    data[0].certs +
+    "</li>" +
+    "<li>PLU: " +
+    data[0].plu +
+    "</li>" +
+    "<li>Price: $" +
+    data[0].price +
+    "</li>" +
+    "<li>Case Dimensions: " +
+    data[0].caseDimensions +
+    "</li>" +
+    "<li>Case Weight: " +
+    data[0].caseWeight +
+    "</li>" +
+    "<li>Nutrition Databse No.: " +
+    data[0].ndbno +
+    "<div id='nfp'>";
+
+  var gridWrapper = $("#mainContent");
+  gridWrapper.empty();
+  gridWrapper.append(productData);
+
+  $.ajax({
+    url: "/api/search/nfp/" + data[0].ndbno,
+    type: "GET"
+  }).then(function(response) {
+    console.log(response);
+    $("#nfp").nutritionLabel({
+      showServingUnitQuantity: false,
+      itemName: response.report.food.name,
+      decimalPlacesForQuantityTextbox: 2,
+      valueServingUnitQuantity: 1,
+      allowFDARounding: true,
+      decimalPlacesForNutrition: 2,
+      showPolyFat: false,
+      showMonoFat: false,
+      valueCalories: response.report.food.nutrients[1].value,
+      valueTotalFat: response.report.food.nutrients[4].value,
+      valueCholesterol: response.report.food.nutrients[13].value,
+      valueSodium: response.report.food.nutrients[22].value,
+      valueTotalCarb: response.report.food.nutrients[6].value,
+      valueFibers: response.report.food.nutrients[7].value,
+      valueSugars: response.report.food.nutrients[8].value,
+      valueProteins: response.report.food.nutrients[3].value,
+      valueVitaminD: response.report.food.nutrients[59].value,
+      valuePotassium_2018: response.report.food.nutrients[24].value,
+      valueCalcium: response.report.food.nutrients[16].value,
+      valueIron: response.report.food.nutrients[21].value,
+      showLegacyVersion: false
+    });
+  });
+}

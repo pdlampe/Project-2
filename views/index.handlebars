@@ -14,16 +14,24 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="index.html">
+      <a class="navbar-item" href="/">
         Home
-      </a>
-
-      <a class="navbar-item">
-        Search
       </a>
       <a class="navbar-item" href="/admin/products/">
         Admin
       </a>
+      <form>
+        <div class="field has-addons has-addons-centered">
+          <div class="control">
+            <input id="searchQuery" class="input" type="text" placeholder="Find a fruit or vegetable">
+          </div>
+          <div class="control">
+            <a id="searchSubmit" class="button is-warning">
+              Search
+            </a>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -90,7 +98,8 @@
               {{#each items}}
               {{#eq this.subcat "Seeded Vegetables"}}
               <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+                  data-plu={{ this.plu }}>{{ this.productName }}</a>
               </li>
               {{/eq}}
               {{/each}}
@@ -102,7 +111,8 @@
               {{#each items}}
               {{#eq this.subcat "Herbs"}}
               <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+                  data-plu={{ this.plu }}>{{ this.productName }}</a>
               </li>
               {{/eq}}
               {{/each}}
@@ -115,7 +125,8 @@
               {{#each items}}
               {{#eq this.subcat "Root Vegetables"}}
               <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+                  data-plu={{ this.plu }}>{{ this.productName }}</a>
               </li>
               {{/eq}}
               {{/each}}
@@ -142,7 +153,8 @@
               {{#each items}}
               {{#eq this.subcat "Citrus"}}
               <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+                  data-plu={{ this.plu }}>{{ this.productName }}</a>
               </li>
               {{/eq}}
               {{/each}}
@@ -155,7 +167,8 @@
               {{#each items}}
               {{#eq this.subcat "Tropical"}}
               <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+                  data-plu={{ this.plu }}>{{ this.productName }}</a>
               </li>
               {{/eq}}
               {{/each}}
@@ -167,7 +180,8 @@
               {{#each items}}
               {{#eq this.subcat "Pomes"}}
               <li class="menu__item" role="menuitem">
-                <a class="menu__link" href="#" data-plu={{ this.plu }}>{{ this.productName }}</a>
+                <a class="menu__link" href="#" data-ndbno={{ this.ndbno }}
+                  data-plu={{ this.plu }}>{{ this.productName }}</a>
               </li>
               {{/eq}}
               {{/each}}
@@ -185,17 +199,9 @@
       <figure class="image center">
         <img src="/img/inSeasonlogo.png" style="max-width: 600px; max-height: 160">
       </figure>
+
       <br> <br>
-      <div class="field has-addons has-addons-centered">
-        <div class="control">
-          <input class="input" type="text" placeholder="Find a fruit or vegetable">
-        </div>
-        <div class="control">
-          <a class="button is-warning">
-            Search
-          </a>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>

@@ -79,7 +79,7 @@
     direction: "r2l",
     // callback: item that doesn´t have a submenu gets clicked
     // onItemClick([event], [inner HTML of the clicked item])
-    onItemClick: function(ev, itemName, plu) {
+    onItemClick: function(ev, itemName, plu, ndbno) {
       return false;
     }
   };
@@ -190,6 +190,7 @@
           var submenu = ev.target.getAttribute("data-submenu"),
             itemName = ev.target.innerHTML,
             plu = ev.target.getAttribute("data-plu"),
+            ndbno = ev.target.getAttribute("data-ndbno"),
             subMenuEl = self.el.querySelector(
               'ul[data-menu="' + submenu + '"]'
             );
@@ -211,7 +212,7 @@
             classie.add(ev.target, "menu__link--current");
 
             // callback
-            self.options.onItemClick(ev, itemName, plu);
+            self.options.onItemClick(ev, itemName, plu, ndbno);
           }
         });
       });
