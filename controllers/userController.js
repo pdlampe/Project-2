@@ -47,14 +47,11 @@ module.exports = function (app) {
     }
 
     try {
-      let user = await User.authenticate(userName, password)
-
-      user = await user.authorize();
-
-      return res.json(user);
-
+      const authData = await User.authenticate(userName, password)
+      return res.json(authData);
     } catch (err) {
-      return res.status(400).send('invalid username or password');
+      console.log(err.message)
+      return res.status(400).json({ message: 'invalid username or password' });
     }
 
   });

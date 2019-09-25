@@ -1,9 +1,9 @@
-const { User, AuthToken } = require('../models');
+var { User, AuthToken } = require('../models');
 
 module.exports = async function(req, res, next) {
 
   // look for an authorization header or auth_token in the cookies
-  const token =
+  var token =
     req.cookies.auth_token || req.headers.authorization;
 
   // if a token is found we will try to find it's associated user
@@ -13,7 +13,7 @@ module.exports = async function(req, res, next) {
   if (token) {
     
     // look for an auth token that matches the cookie or header
-    const authToken = await AuthToken.find(
+    var authToken = await AuthToken.find(
       { where: { token }, include: User }
     );
 

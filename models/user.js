@@ -35,19 +35,13 @@ module.exports = function (sequelize, DataTypes) {
 
         const user = await User.findOne({ where: { userName } });
     
-        // bcrypt is a one-way hashing algorithm that allows us to 
-        // store strings on the database rather than the raw
-        // passwords. Check out the docs for more detail
         if (bcrypt.compareSync(password, user.password)) {
-          return user.authorize();
+            return user.authorize();
         }
     
         throw new Error('invalid password');
       }
     
-      // in order to define an instance method, we have to access
-      // the User model prototype. This can be found in the
-      // sequelize documentation
       User.prototype.authorize = async function () {
         const { AuthToken } = sequelize.models;
         const user = this
@@ -61,7 +55,11 @@ module.exports = function (sequelize, DataTypes) {
         // sequelize which is made for any 'hasMany' relationships
         await user.addAuthToken(authToken);
     
-        return { user, authToken }
+        return { 
+            userId: user.id,
+            userName: user.userName,
+            token: authToken.token
+        }
       };
     
     
