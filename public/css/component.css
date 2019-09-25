@@ -1,8 +1,8 @@
 #searchQuery {
-  width: 200px;
+  width: 300px;
   height: 40px;
   margin-top: 5px;
-  margin-left: ;
+  margin-left: 20px;
 }
 #searchSubmit {
   width: 70px;
@@ -136,25 +136,26 @@
   position: absolute;
   right: 0;
   padding: 0.25em 1.25em;
-  color: #2a2b30;
+  color: #f2daac;
 }
 
 .menu__link:hover,
 .menu__link:focus,
 .menu__link[data-submenu]:hover::after,
 .menu__link[data-submenu]:focus::after {
-  color: #f2be22;
+  color: #fca877;
+  text-decoration-line: none;
 }
 
 .menu__link--current::before {
   content: "\00B7";
-  font-size: 28px;
+  font-size: 30px;
   line-height: 0;
   position: absolute;
   top: 50%;
   left: 0.3em;
   height: 12px;
-  color: #a62424;
+  color: #f86d6d;
 }
 
 [class^="animate-"],
@@ -280,7 +281,7 @@
   vertical-align: middle;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #a62424;
+  color: #fca877;
 }
 
 .menu__breadcrumbs a:last-child {
