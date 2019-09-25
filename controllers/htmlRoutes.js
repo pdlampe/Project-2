@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.get("/admin/products", function(req, res) {
     db.Item.findAll({}).then(function(result) {
       res.render("products", {
-        products: result
+        items: result
       });
     });
   });

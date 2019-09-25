@@ -91,6 +91,17 @@
         <div class="column is-two-fifths has-text-center">
             <br>
             <h2 class="is-size-3">Delete a Product</h2>
+            <br>
+            <ul id="item-list">
+                {{#each items}}
+                <li data-id="{{this.id}}" class="list-group-item">
+                    <button class="btn btn-danger float-right delete">ｘ</button>
+                <p>Item: {{this.productName}}</p>
+                <p>PLU: {{this.plu}}</p>
+            
+            </li>
+          {{/each}}
+            </ul>
         </div>
     </div>
 </div>
