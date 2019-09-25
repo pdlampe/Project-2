@@ -37,11 +37,23 @@ body {
 	font-family: 'Avenir Next', Avenir, 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
 	overflow: hidden;
 	margin: 0;
-	color: #cecece;
-	background: #2a2b30;
+	color: #000000;
+	background: #f2daac;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
 }
+
+#mainContent{
+	font-size: 14px;
+	font: #000000;
+	background-color: #f2dacc;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+
+  
+  }
 
 a {
 	text-decoration: none;
