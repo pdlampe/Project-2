@@ -1,4 +1,4 @@
-
+var itemList = $("#item-list");
 
 $("#submit-product").on("click", function () {
 
@@ -56,4 +56,23 @@ $("#submit-product").on("click", function () {
             window.location.href = "/admin/products"
         })
     }
-})
+});
+
+function deleteExample(id) {
+    return $.ajax({
+      url: "api/items/" + id,
+      type: "DELETE"
+    });
+};
+
+var handleDeleteBtnClick = function() {
+    var idToDelete = $(this)
+      .parent()
+      .attr("data-id");
+  
+    deleteExample(idToDelete).then(function() {
+      window.location.href = "/admin/products"
+    });
+};
+
+itemList.on("click", ".delete", handleDeleteBtnClick);

@@ -27,12 +27,12 @@
   // simulate grid content loading
   // var gridWrapper = document.querySelector("#mainContent");
 
-  function loadData(ev, itemName, plu, ndbno) {
+  function loadData(ev, searchQuery) {
     ev.preventDefault();
     closeMenu();
     // gridWrapper.innerHTML = "";
     $.ajax({
-      url: "api/search/" + plu,
+      url: "api/search/" + searchQuery,
       type: "GET"
     }).then(function(data) {
       console.log(data);

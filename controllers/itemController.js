@@ -66,4 +66,10 @@ module.exports = function(app) {
       res.json(result);
     });
   });
+
+  app.delete("admin/products/api/items/:id", function(req, res) {
+    db.Item.destroy({ where: { id: req.params.id } }).then(function(result) {
+      res.json(result);
+    });
+  });
 };
