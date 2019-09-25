@@ -74,14 +74,10 @@
 
       gridWrapper.innerHTML = productData;
       $.ajax({
-        type: "GET",
-        url:
-          "http://api.nal.usda.gov/ndb/reports/?ndbno=" +
-          plu +
-          "&type=f&format=json&api_key=",
-        dataType: "json"
+        url: "/api/search/nfp/" + "09503",
+        type: "GET"
       }).then(function(response) {
-        console.log(response.report.food.nutrients);
+        console.log(response);
         $("#nfp").nutritionLabel({
           showServingUnitQuantity: false,
           itemName: response.report.food.name,

@@ -29,6 +29,22 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/search/nfp/:query", function(req, res) {
+    var ndbno = req.params.query;
+    const request = require("request");
+    request(
+      "http://api.nal.usda.gov/ndb/reports/?ndbno=" +
+        ndbno +
+        "&type=f&format=json&api_key=haaezbfxD14qfpXGVwF2Me4EE8iAMgQ6NH5fiqG0",
+      function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+          var json = JSON.parse(body);
+          res.send(json);
+        }
+      }
+    );
+  });
+
   app.post("/api/items", function(req, res) {
     console.log(req.body);
     db.Item.create({
