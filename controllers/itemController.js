@@ -1,6 +1,8 @@
+require("dotenv").config();
 var db = require("../models");
 var Sequelize = require("sequelize");
 var Op = Sequelize.Op;
+var apiKey = process.env.USDA_ID;
 
 module.exports = function(app) {
   app.get("/api/items", function(req, res) {
@@ -35,7 +37,8 @@ module.exports = function(app) {
     request(
       "http://api.nal.usda.gov/ndb/reports/?ndbno=" +
         ndbno +
-        "&type=f&format=json&api_key=haaezbfxD14qfpXGVwF2Me4EE8iAMgQ6NH5fiqG0",
+        "&type=f&format=json&api_key=" +
+        apiKey,
       function(error, response, body) {
         if (!error && response.statusCode == 200) {
           var json = JSON.parse(body);
