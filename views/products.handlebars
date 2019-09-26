@@ -1,109 +1,109 @@
 <div class="container has-text-black">
-  <div class="columns">
-    <div class="column is two-fifths has-text-right">
-      <form id="product-form">
-        <br>
-        <h2 class="is-size-3">Add a Product</h2>
-        <br>
-        <p>
-          <label>PLU*
-            <input type="text" name="plu" id="plu" required />
-          </label>
-        </p>
-        <p>
-          <label><a href="https://ndb.nal.usda.gov/ndb/search/list" target="_blank">Nutritional Database Number</a>
-            <input type="text" name="ndbno" id="ndbno">
-          </label>
-        </p>
-        <p>
-          <label>Product Name*
-            <input type="text" id="product-name" name="productName" required />
-          </label>
-        </p>
-        <p>
-          <label>Product Description
-          </label>
-        </p>
-        <textarea name="productDesc" id="product-desc" rows="8" cols="30" style="resize: none;"></textarea>
-        <p>
-          <label>Manufacturer*
-            <input type="text" name="manufacturer" id="manufacturer" required />
-          </label>
-        </p>
-        <p>
-          <label>Select Category*
-            <select id="category-select" required>
-              <option value="" selected="selected" disabled>Select One</option>
-              <option value="fruit" disabled>-- Fruits --</option>
-              <option value="Citrus">Citrus</option>
-              <option value="Tropical">Tropical</option>
-              <option value="Pomes">Pomes</option>
-              <option value="vegtable" disabled>-- Vegetables --</option>
-              <option value="Seeded Vegetables">Seeded Vegetables</option>
-              <option value="Herbs">Herbs</option>
-              <option value="Root Vegetables">Root Vegetables</option>
-            </select>
-          </label>
-        </p>
-        <p>
-          <label>Product Image URL
-            <input type="text" name="prodImg" id="prod-img">
-          </label>
-        </p>
-        <p>
-          <label>Case Price*
-            <input type="text" name="price" id="price" required />
-          </label>
-        </p>
-        <p>
-          <label>Case Count*
-            <input type="text" name="caseCount" id="case-count" required>
-          </label>
-        </p>
-        <p>
-          <label>Case Dimensions (H x W x D)
-            <input type="text" name="caseDimensions" id="case-dimensions">
-          </label>
-        </p>
-        </p>
-        <p>
-          <label>Case Weight (lbs)*
-            <input type="text" name="caseWeight" id="case-weight" required>
-          </label>
-        </p>
-        <p>
-          <label>Certifications
-            <input type="text" name="prodCerts" id="prod-certs">
-          </label>
-        </p>
-        <p>
-          <label>Initial Stock*
-            <input type="text" name="onHand" id="on-hand" required>
-          </label>
-        </p>
+    <div class="columns">
+        <div class="column is two-fifths has-text-right">
+            <form id="product-form">
+                <br>
+                <h2 class="is-size-3">Add a Product</h2>
+                <br>
+                <p>
+                    <label>PLU*
+                        <input type="text" name="plu" id="plu" required />
+                    </label>
+                </p>
+                <p>
+                    <label>Nutritional Database Number
+                        <input type="text" name="ndbno" id="ndbno">
+                    </label>
+                </p>
+                <p>
+                    <label>Product Name*
+                        <input type="text" id="product-name" name="productName" required />
+                    </label>
+                </p>
+                <p>
+                    <label>Product Description
+                    </label>
+                </p>
+                <textarea name="productDesc" id="product-desc" rows="8" cols="30" style="resize: none;"></textarea>
+                <p>
+                    <label>Manufacturer*
+                        <input type="text" name="manufacturer" id="manufacturer" required />
+                    </label>
+                </p>
+                <p>
+                    <label>Select Category*
+                        <select id="category-select" required>
+                            <option value="" selected="selected" disabled>Select One</option>
+                            <option value="fruit" disabled>-- Fruits --</option>
+                            <option value="Citrus">Citrus</option>
+                            <option value="Tropical">Tropical</option>
+                            <option value="Pomes">Pomes</option>
+                            <option value="vegtable" disabled>-- Vegetables --</option>
+                            <option value="Seeded Vegetables">Seeded Vegetables</option>
+                            <option value="Herbs">Herbs</option>
+                            <option value="Root Vegetables">Root Vegetables</option>
+                        </select>
+                    </label>
+                </p>
+                <p>
+                    <label>Product Image URL
+                        <input type="text" name="prodImg" id="prod-img">
+                    </label>
+                </p>
+                <p>
+                    <label>Case Price*
+                        <input type="text" name="price" id="price" required />
+                    </label>
+                </p>
+                <p>
+                    <label>Case Count*
+                        <input type="text" name="caseCount" id="case-count" required>
+                    </label>
+                </p>
+                <p>
+                    <label>Case Dimensions (H x W x D)
+                        <input type="text" name="caseDimensions" id="case-dimensions">
+                    </label>
+                </p>
+                </p>
+                <p>
+                    <label>Case Weight (lbs)*
+                        <input type="text" name="caseWeight" id="case-weight" required>
+                    </label>
+                </p>
+                <p>
+                    <label>Certifications
+                        <input type="text" name="prodCerts" id="prod-certs">
+                    </label>
+                </p>
+                <p>
+                    <label>Initial Stock*
+                        <input type="text" name="onHand" id="on-hand" required>
+                    </label>
+                </p>
 
-        <p><button id="submit-product">Submit</button></p>
-      </form>
-    </div>
-    <div class="column is-one-fifth">
+                <p><button id="submit-product">Submit</button></p>
+            </form>
+        </div>
+        <div class="column is-one-fifth">
 
+        </div>
+        <div class="column is-two-fifths has-text-center">
+            <br>
+            <h2 class="is-size-3">Delete a Product</h2>
+            <br>
+            <ul id="item-list">
+                {{#each items}}
+                <li data-id="{{this.id}}" class="list-group-item">
+                    <button class="btn btn-danger float-right delete">ｘ</button>
+                <p>Item: {{this.productName}}</p>
+                <p>PLU: {{this.plu}}</p>
+            
+            </li>
+          {{/each}}
+            </ul>
+        </div>
     </div>
-    <div class="column is-two-fifths has-text-center">
-      <br>
-      <h2 class="is-size-3">Delete a Product</h2>
-      <br>
-      <ul id="item-list">
-        {{#each items}}
-        <li data-id="{{this.id}}" class="list-group-item">
-          <button class="btn btn-danger float-right delete">ｘ</button>
-          <p>Item: {{this.productName}}</p>
-          <p>PLU: {{this.plu}}</p>
-
-        </li>
-        {{/each}}
-      </ul>
-    </div>
-  </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

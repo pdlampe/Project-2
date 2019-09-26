@@ -41,6 +41,28 @@
   }
 })();
 
+// var searchSubmit = $("#searchSubmit");
+
+// searchSubmit.on("click", loadSearchData);
+// var searchQuery;
+
+// var searchPageLink = $("#searchPageLink");
+
+// searchPageLink.on("click", buildSearchPage);
+
+// function buildSearchPage() {
+//   gridWrapper.innerHTML = "";
+//   var searchPage =
+//     "<br><br><figure class='image center'><img src='/img/inSeasonlogo.png' style='max-width: 600px; max-height: 160'></figure><br><br><form><div class='field has-addons has-addons-centered'>" +
+//     "<div class='control'><input id='searchQuery' class='input' type='text' placeholder='Find a fruit or vegetable'>" +
+//     "</div><div class='control'><button id='searchSubmit' class='button is-warning'>" +
+//     "Search" +
+//     "</button></div></div></form>";
+
+//   gridWrapper.innerHTML = searchPage;
+//   searchSubmit = $("#searchSubmit");
+// }
+
 $(document).on("click", "#searchSubmit", function(event) {
   event.preventDefault();
   searchQuery = $("#searchQuery")
@@ -64,33 +86,6 @@ $(document).on("click", "#searchSubmit", function(event) {
   }
 
   loadSearchData();
-});
-
-$("#searchQuery").keypress(function(event) {
-  if (event.which === 13) {
-    event.preventDefault();
-    searchQuery = $("#searchQuery")
-      .val()
-      .trim();
-
-    function loadSearchData() {
-      if (!searchQuery) {
-        alert("You must enter a PLU or product name!");
-        return;
-      }
-      $.ajax({
-        url: "api/search/" + searchQuery,
-        type: "GET"
-      }).done(function(data) {
-        // gridWrapper = $("#mainContent");
-        // console.log(gridWrapper);
-        // gridWrapper.innerHTML = "";
-        buildProductPage(data);
-      });
-    }
-
-    loadSearchData();
-  }
 });
 
 function buildProductPage(data) {
@@ -128,7 +123,7 @@ function buildProductPage(data) {
     "<li>Case Weight: " +
     data[0].caseWeight +
     "</li>" +
-    "<li>Nutrition Database No: " +
+    "<li>Nutrition Databse No.: " +
     data[0].ndbno +
     "<div id='nfp'></div>";
 
@@ -148,7 +143,6 @@ function buildProductPage(data) {
       valueServingUnitQuantity: 1,
       allowFDARounding: true,
       decimalPlacesForNutrition: 2,
-      showIngredients: false,
       showPolyFat: false,
       showMonoFat: false,
       valueCalories: response.report.food.nutrients[1].value,

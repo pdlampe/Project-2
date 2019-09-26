@@ -34,7 +34,6 @@
 /* Main styles */
 
 body {
-  min-height: 100vh;
   font-family: "Avenir Next", Avenir, "Helvetica Neue", "Lato", "Segoe UI",
     Helvetica, Arial, sans-serif;
   overflow: hidden;
@@ -47,17 +46,17 @@ body {
 
 a {
   text-decoration: none;
-  color: rgb(69, 191, 248);
+  color: #fff;
   outline: none;
 }
 
 a:hover {
-  color: rgb(30, 145, 253);
+  color: #ddd;
 }
 
 .container {
   /* overflow-y: auto; */
-  height: auto;
+  height: 200vh;
 }
 
 /* Blueprint header */
